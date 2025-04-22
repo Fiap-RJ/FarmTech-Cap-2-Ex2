@@ -1,1 +1,7 @@
+*.csv
+*.tsv
+*.xls
+*.xlsx
 .env
+*/venv
+.idea/

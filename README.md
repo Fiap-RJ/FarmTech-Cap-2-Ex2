@@ -1,97 +1,107 @@
+# FIAP - Faculdade de Informática e Administração Paulista
 
-# Sistema de Cadastro e Consulta de Agrotechs
+<p align="center">
+<a href= "https://www.fiap.com.br/"><img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=40% height=40%></a>
+</p>
 
-Este projeto simula o cadastro e a consulta de startups de tecnologia voltadas ao agronegócio (agrotechs), utilizando Python e banco de dados Oracle.
+<br>
 
-## Tema do Agronegócio
-O projeto trata da **inovação tecnológica no setor agro**, com foco no mapeamento de agrotechs e suas áreas de atuação. As agrotechs são empresas que desenvolvem soluções tecnológicas para otimizar processos no agronegócio, como monitoramento de plantações, otimização de uso de recursos e melhorias na produtividade rural.
+# Nome do projeto
+### Agrotechs Catalog
 
-## Tecnologias Utilizadas
-- **Python 3:** Linguagem utilizada para o desenvolvimento da solução.
-- **Manipulação de arquivos JSON:** Para armazenamento local dos dados.
-- **Conexão com banco Oracle:** Utilização da biblioteca `cx_Oracle` para realizar a conexão e manipulação de dados no banco de dados Oracle.
-- **Subalgoritmos:** Funções e procedimentos são empregados para modularizar a lógica de cadastro e consulta.
-- **Estruturas de dados:** Listas e dicionários são usados para armazenar e organizar as informações temporárias no código.
+## Nome do grupo
 
-## Funcionalidades
-- **Cadastro de agrotechs:** Permite cadastrar agrotechs com informações como nome, estado (UF) e segmento de atuação.
-- **Armazenamento local em JSON e em banco Oracle:** Os dados podem ser armazenados tanto em um arquivo JSON local quanto em um banco de dados Oracle, permitindo persistência e consulta eficiente.
-- **Consulta de agrotechs por estado:** O sistema permite consultar as agrotechs cadastradas por estado (UF), facilitando o mapeamento geográfico das startups.
-- **Validação de entrada do usuário:** O sistema valida as entradas do usuário para garantir que dados como o nome da agrotech, estado e segmento sejam fornecidos corretamente.
+## 👨‍🎓 Integrantes: 
+- <a href="https://www.linkedin.com/in/arthur-alentejo">Arthur Guimarães Alentejo</a>
+- <a href="https://www.linkedin.com/in/michaelrodriguess">Michael Rodrigues</a>
+- <a href="https://www.linkedin.com/in/matheus-sacramento-de-lima-60512542/">Matheus Sacramento Lima</a> 
+- <a href="https://www.linkedin.com/company/inova-fusca">Nathalia Vasconcelos</a> 
+- <a href="https://www.linkedin.com/in/natan-lages-096487160">Natan Lages</a>
 
-## Estrutura do Projeto
-- **`main.py`:** Arquivo principal que executa a interface de interação com o usuário
-- **`db/oracle.py`:** Arquivo que contém a função de conexão com o banco de dados Oracle.
-- **`db/database.py`:** Arquivo responsável pela interação com o banco de dados, incluindo inserção e consulta dos dados de agrotechs.
-- **`agrotech_service.py`:** Arquivo contendo as funções que processam os dados e realizam as funcionalidades disponíveis do sistema.
-- **`utils.py`:** Funções auxiliares para leitura e escrita de arquivos JSON, limpar a tela e validar UF que o usuário irá digitar.
-- **`.env`:** Arquivo para armazenar variáveis de ambiente, como configurações de banco de dados.
+## 👩‍🏫 Professores:
+### Tutor(a) 
+- <a href="https://www.linkedin.com/company/inova-fusca">Lucas Gomes Moreira</a>
+### Coordenador(a)
+- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Coordenador</a>
 
-## Como Rodar o Projeto
 
-**Rodar com script automatizado**
-   Para rodar o projeto automaticamente, basta executar o script run.sh:
-   ```bash
-   chmod +x run.sh
-   ./run.sh
-   ```
----
+## 📜 Descrição
 
-Caso prefira rodar o projeto manualmente, siga a instrução abaixo:
+Este projeto tem como objetivo aplicar conceitos fundamentais de Python no contexto do agronegócio, focando especificamente na inovação tecnológica do setor por meio do mapeamento de agrotechs — startups que oferecem soluções tecnológicas para a agricultura. Com base no enunciado da atividade PBL, foi escolhida uma dor real do setor: a falta de organização e visibilidade de empresas emergentes que desenvolvem tecnologia voltada ao campo.
 
+A solução proposta é um sistema simples de cadastro e consulta de agrotechs, utilizando como base os conteúdos dos capítulos 3, 4, 5 e 6 da disciplina. Foram utilizados subalgoritmos (funções e procedimentos com passagem de parâmetros), estruturas de dados como listas e dicionários, manipulação de arquivos JSON para armazenamento local e integração com banco de dados Oracle para persistência.
+
+O sistema permite que o usuário cadastre uma agrotech informando seu nome, estado (UF) e segmento de atuação, validando os dados de entrada e garantindo que apenas informações válidas sejam armazenadas. As informações são salvas tanto localmente em um arquivo .json quanto em uma tabela no banco de dados Oracle. Também é possível consultar as agrotechs por estado, visualizando de forma limpa e objetiva os registros salvos.
+
+
+## 📁 Estrutura de pastas
+
+Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+
+- <b>.github</b>: Nesta pasta ficarão os arquivos de configuração específicos do GitHub que ajudam a gerenciar e automatizar processos no repositório.
+
+- <b>assets</b>: aqui estão os arquivos relacionados a elementos não-estruturados deste repositório, como imagens.
+
+- <b>config</b>: Posicione aqui arquivos de configuração que são usados para definir parâmetros e ajustes do projeto.
+
+- <b>document</b>: aqui estão todos os documentos do projeto que as atividades poderão pedir. Na subpasta "other", adicione documentos complementares e menos importantes.
+
+- <b>scripts</b>: Posicione aqui scripts auxiliares para tarefas específicas do seu projeto. Exemplo: deploy, migrações de banco de dados, backups.
+
+- <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto ao longo das 7 fases.
+
+- <b>README.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+
+## 🔧 Como executar o código
+
+Abaixo, duas formas de rodar o projeto: via script local ou via Docker.
+
+✅ Pré-requisitos
+- Python 3.10 ou superior (para execução local)
+- Docker e Docker Compose (para execução via container)
+- Git
+- Oracle Database 21c (se não usar Docker)
+
+### 🚀 Execução via Script Local
 1. **Clonar o Repositório**
-   
-   Clone o repositório para sua máquina local:
-   
-   ```bash
-   git clone https://github.com/Fiap-RJ/FarmTech-Cap-2-Ex2
-   cd FarmTech-Cap-2-Ex2
-   ```
 
-2. **Criar e Ativar um Ambiente Virtual**
+```bash
+git clone https://github.com/Fiap-RJ/FarmTech-Cap-2-Ex2
+cd FarmTech-Cap-2-Ex2/scripts
+```
+2. **Executar o script**
 
-   Se você ainda não tem um ambiente virtual configurado, crie e ative um ambiente virtual com os seguintes comandos:
+O script criará um ambiente virtual, instalará as dependências e iniciará o projeto:
 
-   - **Linux/Mac:**
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
+```bash
+chmod +x run.sh
+./run.sh
+```
 
-   - **Windows:**
-     ```bash
-     python -m venv venv
-     venv\Scriptsctivate
-     ```
+### 🐳 Execução via Docker
+1. **Clonar o Repositório**
 
-3. **Instalar as Dependências**
+```bash
+git clone https://github.com/Fiap-RJ/FarmTech-Cap-2-Ex2
+cd FarmTech-Cap-2-Ex2/scripts
+```
 
-   Com o ambiente virtual ativado, instale as dependências do projeto com o comando:
+2. Subir os containers
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+Esse comando irá subir o banco de dados Oracle e a aplicação Python:
 
-4. **Configurar as Variáveis de Ambiente**
+```bash
+docker-compose up --build
+``
 
-   Crie um arquivo `.env` na raiz do projeto com as configurações necessárias para a conexão ao banco Oracle. O arquivo deve ter o seguinte formato:
 
-   ```
-   ORACLE_USERNAME=seu_usuario
-   ORACLE_PASSWORD=sua_senha
-   ORACLE_DSN=host:porta/servico
-   ```
+## 🗃 Histórico de lançamentos
 
-5. **Rodar o Projeto**
+* 0.0.1 - 20/05/2025
+    *  Primeira versão do projeto
 
-   Após configurar o ambiente e instalar as dependências, você pode rodar o projeto com o seguinte comando:
+## 📋 Licença
 
-   ```bash
-   python main.py
-   ```
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/agodoi/template">MODELO GIT FIAP</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://fiap.com.br">Fiap</a> está licenciado sobre <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
 
-   Isso iniciará o sistema e permitirá que você cadastre e consulte agrotechs.
 
-## Como Funciona
-- **Cadastro:** O sistema solicita ao usuário o nome, estado e segmento de uma agrotech. Os dados são validados e, em seguida, inseridos no banco de dados Oracle e no arquivo JSON.
-- **Consulta:** O usuário pode consultar as agrotechs cadastradas, filtrando-as por estado (UF). O sistema exibe as informações de forma organizada e legível.

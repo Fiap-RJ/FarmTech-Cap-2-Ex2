@@ -1,18 +1,24 @@
 from utils import validar_uf, obter_dados_json, salvar_dados_json
 from db.database import inserir_no_banco
+import os
 
-ARQUIVO_JSON = "data/agrotechs.json"
+NOME_ARQUIVO_JSON = "data/agrotechs.json"
+DIRETORIO_ATUAL = os.path.dirname(os.path.abspath(__file__))
+ARQUIVO_JSON = os.path.join(DIRETORIO_ATUAL, NOME_ARQUIVO_JSON)
 
 
 def cadastrar_agrotech():
     print("Cadastro de Agrotech")
     nome = input("Nome da agrotech: ").strip()
     estado = input("Estado (sigla): ").strip().upper()
-    segmento = input("Segmento (ex: gestão, sensores, biotecnologia): ").strip()
-
     if not validar_uf(estado):
         print("UF inválida.")
+        input("Pressione Enter para continuar...")
         return
+
+    segmento = input("Segmento (ex: gestão, sensores, biotecnologia): ").strip()
+
+
 
     agrotech = {"nome": nome, "estado": estado, "segmento": segmento}
 
@@ -20,7 +26,7 @@ def cadastrar_agrotech():
     dados.append(agrotech)
     salvar_dados_json(ARQUIVO_JSON, dados)
 
-    # inserir_no_banco(agrotech)
+    inserir_no_banco(agrotech)
 
     print("Agrotech cadastrada com sucesso!")
     input("Pressione Enter para continuar...")
@@ -38,6 +44,10 @@ def listar_agrotechs():
 
 def buscar_por_estado(uf):
     dados = obter_dados_json(ARQUIVO_JSON)
+    if not validar_uf(uf):
+        print("UF inválida.")
+        input("Pressione Enter para continuar...")
+        return
     filtrados = [a for a in dados if a["estado"] == uf]
     if not filtrados:
         print("Nenhuma agrotech encontrada nesse estado.")

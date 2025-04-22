@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-free
+    container_name: oracle-server-db
+    env_file:
+      - .env
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=${DATABASE_PASSWORD}
+      - APP_USER=${DATABASE_USER}
+      - APP_USER_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "ls", "/opt/oracle/oradata"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+  agrotech-app:
+    build:
+      context: ../
+      dockerfile: scripts/Dockerfile
+    container_name: agrotech-app
+    env_file:
+      - ../.env
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+    environment:
+      - DATABASE_HOST=oracle-server-db
+      - DATABASE_PORT=1521
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+    stdin_open: true
+    tty: true
+
+volumes:
+  oracle-data:
+
+
